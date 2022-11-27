@@ -232,6 +232,8 @@ class _DeltaVisitor implements ast.NodeVisitor {
         return Attribute.h2;
       case 'h3':
         return Attribute.h3;
+      case 'code':
+        return Attribute.inlineCode;
       case 'a':
         final href = el.attributes['href'];
         return LinkAttribute(href);

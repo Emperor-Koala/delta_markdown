@@ -216,8 +216,10 @@ class DeltaMarkdownEncoder extends Converter<String, String> {
       buffer.write('_');
     } else if (attribute.key == Attribute.link.key) {
       buffer.write(!close ? '[' : '](${attribute.value})');
-    } else if (attribute == Attribute.codeBlock) {
+    } else if (attribute.key == Attribute.codeBlock.key) {
       buffer.write(!close ? '```\n' : '\n```');
+    } else if (attribute.key == Attribute.inlineCode.key) {
+      buffer.write('`');
     } else {
       throw ArgumentError('Cannot handle $attribute');
     }
